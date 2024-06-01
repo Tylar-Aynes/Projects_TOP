@@ -1,3 +1,6 @@
+let score = 0;
+let computerScore = 0;
+
 function runGame(selection)
 {
     let choiceArray = ["rock", "paper", "scissors"];
@@ -5,7 +8,18 @@ function runGame(selection)
     let computerInput = getComputerChoice(choiceArray);
     let resultString = findWinner(userInput, computerInput);
     let resultDisplay = document.getElementById('results');
-    resultDisplay.textContent = "Final results:" +  resultString;
+    resultDisplay.textContent = "Match results:" +  resultString;
+    let scoreUpdate = document.getElementById('Score');
+    updateScore(resultString);
+    scoreUpdate.innerHTML = "Here are the results:<br>" + "Your Score: " + score + "<br>" + "Computer Score: " + computerScore;
+}
+
+function updateScore(result)
+{
+    if(result === 'You win!')
+        score++;
+    else if(result === 'You lose...')
+        computerScore++;
 }
 
 function getUserInput(selection)
