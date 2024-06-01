@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+    <header>Play Rock Paper Scissors!</header>
+
+        <div class="content">
+            <div class="game">
+                <div>Here are the results.</div>
+                <div id="display">Your selection </div>
+                <div id="computer-display">Computer selection</div>
+                <div id="results">Final results: </div>
+                <label for="userInput">Enter your selection</label>
+            </div>
+
+            <div class="input">
+                
+                <div class="images 1">
+                    <img src="rock.png" width="100px" height="auto">
+                    <button onclick="runGame('rock')">Rock</button>
+                </div>
+                <div class="images 2">
+                    <img src="paper.png">
+                    <button onclick="runGame('paper')">Paper</button>
+                </div>
+                <div class="images 2">
+                    <img src="scissors.png">
+                    <button onclick="runGame('scissors')">Scissors</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <footer>
+            <em style="font-family: Papyrus, sans-serif">JavaScript Project</em>
+        </footer>
+        <script src="rock_paper_scissors.js">
+        </script> 
+    </body>
+</html>

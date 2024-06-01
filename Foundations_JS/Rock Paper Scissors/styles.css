@@ -1,0 +1,96 @@
+html
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+body
+{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header
+{
+    font-size: 32px;
+    font-family: Cambria Math, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 600;
+}
+
+footer
+{
+    display: flex;
+    flex-grow: 2;
+    align-items: end;
+}
+
+.content
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-grow: 3;
+    align-items: center;
+}
+
+#display
+{
+    background-color: green;
+    color: white;
+}
+
+#computer-display
+{
+    background-color: red;
+    color: black;
+}
+
+#results
+{
+    background-color: aqua;
+}
+
+.game
+{
+    flex-grow: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.input
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+}
+
+img
+{
+    height: 200px;
+    width: auto;
+}
+
+.images
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 250px;
+}
+
+.text
+{
+    display: flex;
+    justify-content: space-around;
+    gap:10px;
+}
