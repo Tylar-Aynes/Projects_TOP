@@ -67,5 +67,30 @@ function getRandomInt() {
     return Math.floor(Math.random() * 25);
 }
 
+function gridResizerButton()
+{
+    let theButton = document.querySelector('.gridchanger');
+    let resizer;
+    theButton.style.width = '200px';
+    theButton.style.height = '25px';
+    theButton.addEventListener('click', () => {
+        resizer = prompt("Enter the number of squares per row.");
+        if(resizer > 0 && resizer < 65)
+        {
+                resizer = Math.floor(resizer);
+                removeGrid(container);
+                createGrid(container, resizer);
+                resizer = 0;
+        }
+        else
+        {
+            alert('Enter a positive integer between 1 and 64 inclusive.');
+        }
+    })   
+    theButton.textContent = "Click to resize grid";
+}
+
 createGrid(container, gridSize);
+gridResizerButton();
+
 // removeGrid(container);
