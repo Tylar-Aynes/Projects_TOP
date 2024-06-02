@@ -1,17 +1,17 @@
 let score = 0;
 let computerScore = 0;
 
-function runGame(selection)
+function playRound(selection)
 {
     let choiceArray = ["rock", "paper", "scissors"];
-    let userInput = getUserInput(selection);
+    let userInput = updateUserInput(selection);
     let computerInput = getComputerChoice(choiceArray);
-    let resultString = findWinner(userInput, computerInput);
+    let resultString = findWinner(selection, computerInput);
     let resultDisplay = document.getElementById('results');
-    resultDisplay.textContent = "Match results:" +  resultString;
+    resultDisplay.textContent = "Game results:" +  resultString;
     let scoreUpdate = document.getElementById('Score');
     updateScore(resultString);
-    scoreUpdate.innerHTML = "Here are the results:<br>" + "Your Score: " + score + "<br>" + "Computer Score: " + computerScore;
+    finishGame(score, computerScore, scoreUpdate);
 }
 
 function updateScore(result)
@@ -22,7 +22,7 @@ function updateScore(result)
         computerScore++;
 }
 
-function getUserInput(selection)
+function updateUserInput(selection)
 {
     let selectionDisplay = document.getElementById('display');
     selectionDisplay.textContent = 'You selected: ' + selection;
@@ -46,6 +46,8 @@ function getRandomInt()
 
 function findWinner(userSelection, computerSelection)
 {
+    userSelection = userSelection.toLowerCase();
+    computerSelection = computerSelection.toLowerCase();
     if(userSelection === 'rock')
     {
             if(computerSelection === 'scissors')
@@ -85,8 +87,58 @@ function findWinner(userSelection, computerSelection)
         }
 }
 
+function finishGame(score, computerScore, scoreUpdate)
+{
+    if(score < 5 && computerScore < 5)
+    {
+            scoreUpdate.innerHTML = "Here are the results:<br>" + "Your Score: " + score + "<br>" + "Computer Score: " + computerScore; 
+            return;
+    }
+        
+    else if(score == 5)
+    {
+        scoreUpdate.innerHTML = "Congratulations! 5 wins is a match victory<br>" + "Your Score: " + score + "<br>" + "Computer Score: " + computerScore;
+    }
+    else if(computerScore == 5)
+    {
+        scoreUpdate.innerHTML = "Sorry, 5 losses is a match loss...<br>" + "Your Score: " + score + "<br>" + "Computer Score: " + computerScore;
+    } 
+
+    let divRefs = document.querySelector('.content').querySelector('.game');
+    let children = divRefs.children;
+    Array.from(children).forEach(child => {
+        if(child.id !== 'Score')
+            child.remove();
+    })
+    removeButtons();
+    return;
+}
+
+function removeButtons()
+{
+    const inputRef = document.querySelector('.input');
+    const imageList = inputRef.querySelectorAll('.images');
+
+    
+    imageList.forEach(image => {
+        let buttonRef = image.querySelector('button');
+        if(buttonRef)
+            buttonRef.remove();
+    });
+}
+
+const inputRef = document.querySelector('.input');
+const imageList = inputRef.querySelectorAll('.images');
+console.log(imageList);
+
+imageList.forEach(image => {
+    let buttonRef = image.querySelector('button');
+    buttonRef.addEventListener("click", ()  => {
+        
+        playRound(buttonRef.textContent);
+    });
+});
+
 document.addEventListener('DOMContentLoaded', function() {
-
-
 
 });
