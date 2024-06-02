@@ -4,7 +4,8 @@ container.style.display = "flex";
 container.style.flexDirection = "column";
 container.style.width = "960px";
 container.style.height = "960px";
-const colors = ['blue', 'red', 'white', 'black', 'green', 'yellow', 'orange', 'gray', 'pink', 'aqua',
+container.style.backgroundColor = "black";
+const colors = ['blue', 'red', 'white', 'tan', 'green', 'yellow', 'orange', 'gray', 'pink', 'aqua',
 'purple', 'brown', 'violet', 'indigo', 'magenta', 'cyan', 'lime', 'teal', 'olive', 'maroon',
 'navy', 'coral', 'turquoise', 'beige', 'lavender'];
 
@@ -40,6 +41,19 @@ function createDiv()
     newDiv.style.flexGrow = 1;
     newDiv.addEventListener("mouseout", () => {
         randomizeColor(newDiv);
+        let opacity = newDiv.style.opacity;
+        console.log("The opacity is " + opacity + " and the date is " + new Date());
+        if(opacity)
+        {
+                if(opacity >= 0.1)
+                    opacity -= 0.1;
+                newDiv.style.opacity = opacity;
+        }
+        else
+        {
+            newDiv.style.opacity = 1;
+        }
+
     });
 
     return newDiv;
