@@ -56,8 +56,13 @@ function clear()
 // We force 'a' to a type of number, to allow the storeNumber function to access b
 function storeOperator(operator)
 {
-    currentOperation = operator;
-    a = Number(a);
+   //if(operator !== '')
+   // {
+        currentOperation = operator;
+        a = Number(a);
+  //  }
+      //  return displayRef.textContent = operate(a, b, currentOperation);
+
 }
 
 function storeNumber(number)
@@ -95,7 +100,15 @@ for(let operator of operatorArray)
     {
         let theButton = document.querySelector(`.${operator}`);
         theButton.addEventListener("click", () => {
-            storeOperator(theButton.textContent);
+            if(currentOperation === '')
+                storeOperator(theButton.textContent);
+            else
+            {
+                a = operate(a, Number(b), currentOperation);
+                displayRef.textContent = a;
+                b = '';
+                storeOperator(theButton.textContent);
+            } 
         });
     }
 
