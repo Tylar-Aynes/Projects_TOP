@@ -2,7 +2,7 @@ const add = (a,b) => a + b;
 const subtract = (a,b) => a - b;
 const divide = (a,b) => a / b;
 const multiply = (a,b) => a * b;
-const sign = (a) => a * -1;
+
 const percent = (a) => a / 100;
 const displayRef = document.querySelector('span');
 
@@ -25,10 +25,22 @@ const operate = (a, b, operator) =>{
         case '.':
         case '%':
             return percent(a);
-        case '+ / -':
-            return sign(a);
         default: display += operator;
 
+    }
+}
+
+function sign(first, second, operator)
+{
+    if(operator === '')
+        {
+            a = String(Number(first) * -1);
+            displayRef.textContent = a;
+        }
+    else
+    {
+        b = String(Number(second) * -1);
+        displayRef.textContent = b;
     }
 }
 
@@ -38,8 +50,10 @@ function clear()
     b = '';
     displayRef.textContent = '';
     currentOperation = '';
+    return '';
 }
 
+// We force 'a' to a type of number, to allow the storeNumber function to access b
 function storeOperator(operator)
 {
     currentOperation = operator;
@@ -58,9 +72,7 @@ function storeNumber(number)
         a += number;
         displayRef.textContent = a;
     } 
-
 }
-
 
 /* Equals and clear event listeners initialized separately for their unique functions.
 Then event listeners are applied iteratively for number and operator buttons, which use similar functions */
@@ -68,11 +80,15 @@ document.querySelector('.equals').addEventListener("click", () => {
     if(b !== '')
         displayRef.textContent = operate(a, Number(b), currentOperation);
     else displayRef.textContent = a;
-})
+});
 
 document.querySelector('.AC').addEventListener("click", () => {
     displayRef.textContent = clear();
-})
+});
+
+document.querySelector('.sign').addEventListener("click", () => {
+    sign(a,b, currentOperation);
+});
 
 let operatorArray = ['multiply', 'subtract', 'add', 'divide'];
 for(let operator of operatorArray)
