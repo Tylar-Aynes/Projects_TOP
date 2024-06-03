@@ -4,6 +4,13 @@ const divide = (a,b) => a / b;
 const multiply = (a,b) => a * b;
 const sign = (a) => a * -1;
 const percent = (a) => a / 100;
+const displayRef = document.querySelector('span');
+
+let a = '';
+let b = '';
+let display = '';
+let currentOperation = '';
+
 const operate = (a, b, operator) =>{
     switch(operator)
     {
@@ -16,27 +23,71 @@ const operate = (a, b, operator) =>{
         case '/':
             return divide(a,b);
         case '.':
-            break;
         case '%':
             return percent(a);
-        case 'AC':
-            break;
         case '+ / -':
             return sign(a);
+        default: display += operator;
 
     }
+}
+
+function clear()
+{
+    a = '';
+    b = '';
+    displayRef.textContent = '';
+    currentOperation = '';
+}
+
+function storeOperator(operator)
+{
+    currentOperation = operator;
+    a = Number(a);
+}
+
+function storeNumber(number)
+{
+    if(typeof a === 'number')
+    {
+        b += number;
+        displayRef.textContent = b;
+    }
+    else
+    {
+        a += number;
+        displayRef.textContent = a;
+    } 
 
 }
 
-let a = 0;
-let b = 0;
 
-let buttonList = document.querySelectorAll('button');
-for(const button of buttonList)
+/* Equals and clear event listeners initialized separately for their unique functions.
+Then event listeners are applied iteratively for number and operator buttons, which use similar functions */
+document.querySelector('.equals').addEventListener("click", () => {
+    if(b !== '')
+        displayRef.textContent = operate(a, Number(b), currentOperation);
+    else displayRef.textContent = a;
+})
+
+document.querySelector('.AC').addEventListener("click", () => {
+    displayRef.textContent = clear();
+})
+
+let operatorArray = ['multiply', 'subtract', 'add', 'divide'];
+for(let operator of operatorArray)
     {
-        button.addEventListener("click", () =>
-        {
-            operate(a,b,button.textContent);
-            console.log(button.textContent + " " +  new Date());
+        let theButton = document.querySelector(`.${operator}`);
+        theButton.addEventListener("click", () => {
+            storeOperator(theButton.textContent);
+        });
+    }
+
+let numberArray = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+for(let number of numberArray)
+    {
+        let theButton = document.querySelector(`.b${number}`);
+        theButton.addEventListener("click", () => {
+            storeNumber(theButton.textContent);
         });
     }

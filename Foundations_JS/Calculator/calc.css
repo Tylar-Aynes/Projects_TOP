@@ -21,7 +21,6 @@ body{
 .screen
 {
     display: flex;
-    flex-grow: 1;
     align-self: stretch;
     background-color: lightslategray;
     color: white;
@@ -29,6 +28,7 @@ body{
     font-family: Cambria Math, sans-serif;
     justify-content: end;
     align-items: center ;
+    height: 90px;
 }
 
 .allbuttons
