@@ -24,8 +24,6 @@ const operate = (a, b, operator) =>{
         case '/':
             return  b != 0 ? divide(a,b) : NaN;
         case '.':
-        case '%':
-            return percent(a);
         default: display += operator;
 
     }
@@ -85,24 +83,35 @@ function checkPrecision(number) {
     return regex.test(number.toString());
 }
 
+function handlePrecision(number)
+{
+    if(checkPrecision(Number(number)))
+        {
+            displayRef.textContent = number;
+        }
+        else 
+        {   
+            displayRef.textContent = String(roundDecimal(Number(number)));
+            console.log(String(roundDecimal(Number(number))));
+        }
+        return displayRef.textContent;
+}
+
 /* Equals and clear event listeners initialized separately for their unique functions.
 Then event listeners are applied iteratively for number and operator buttons, which use similar functions */
 document.querySelector('.equals').addEventListener("click", () => {
     if(b !== '')
         {
             let display = operate(a, Number(b), currentOperation);
-            if(checkPrecision(Number(display)))
-                {
-                    displayRef.textContent = display;
-                }
-                else 
-                {   
-                    displayRef.textContent = String(roundDecimal(Number(display)));
-                    console.log(String(roundDecimal(Number(display))));
-                }
+            handlePrecision(display);
         }
     else displayRef.textContent = a;
 
+});
+
+document.querySelector('.percent').addEventListener("click", () => {
+
+   a = handlePrecision(percent(a));
 });
 
 document.querySelector('.AC').addEventListener("click", () => {
