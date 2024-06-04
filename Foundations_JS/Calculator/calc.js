@@ -73,6 +73,26 @@ function storeNumber(number)
     } 
 }
 
+function storeDecimal()
+{
+    if(typeof a === 'number')
+    {
+        if(!b.includes('.'))
+        {
+            b += '.';
+            displayRef.textContent = b;
+        }
+    }
+    else
+    {
+        if(!a.includes('.'))
+            {
+                a += '.';
+                displayRef.textContent = a;
+            }
+    } 
+}
+
 function roundDecimal(number)
 {
     return parseFloat(number.toFixed(DECIMAL_PRECISION));
@@ -120,6 +140,10 @@ document.querySelector('.AC').addEventListener("click", () => {
 
 document.querySelector('.sign').addEventListener("click", () => {
     sign(a,b, currentOperation);
+});
+
+document.querySelector('.decimal').addEventListener("click", () => {
+    storeDecimal();
 });
 
 let operatorArray = ['multiply', 'subtract', 'add', 'divide'];
