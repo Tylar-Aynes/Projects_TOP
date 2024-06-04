@@ -1,3 +1,4 @@
+const DECIMAL_PRECISION = 3;
 const add = (a,b) => a + b;
 const subtract = (a,b) => a - b;
 const divide = (a,b) => a / b;
@@ -21,7 +22,7 @@ const operate = (a, b, operator) =>{
         case '*':
             return multiply(a,b);
         case '/':
-            return divide(a,b);
+            return  b != 0 ? divide(a,b) : NaN;
         case '.':
         case '%':
             return percent(a);
@@ -56,13 +57,8 @@ function clear()
 // We force 'a' to a type of number, to allow the storeNumber function to access b
 function storeOperator(operator)
 {
-   //if(operator !== '')
-   // {
         currentOperation = operator;
         a = Number(a);
-  //  }
-      //  return displayRef.textContent = operate(a, b, currentOperation);
-
 }
 
 function storeNumber(number)
@@ -79,12 +75,34 @@ function storeNumber(number)
     } 
 }
 
+function roundDecimal(number)
+{
+    return parseFloat(number.toFixed(DECIMAL_PRECISION));
+}
+
+function checkPrecision(number) {
+    const regex = new RegExp(`^\\d+(\\.\\d{1,${DECIMAL_PRECISION}})?$`);
+    return regex.test(number.toString());
+}
+
 /* Equals and clear event listeners initialized separately for their unique functions.
 Then event listeners are applied iteratively for number and operator buttons, which use similar functions */
 document.querySelector('.equals').addEventListener("click", () => {
     if(b !== '')
-        displayRef.textContent = operate(a, Number(b), currentOperation);
+        {
+            let display = operate(a, Number(b), currentOperation);
+            if(checkPrecision(Number(display)))
+                {
+                    displayRef.textContent = display;
+                }
+                else 
+                {   
+                    displayRef.textContent = String(roundDecimal(Number(display)));
+                    console.log(String(roundDecimal(Number(display))));
+                }
+        }
     else displayRef.textContent = a;
+
 });
 
 document.querySelector('.AC').addEventListener("click", () => {
