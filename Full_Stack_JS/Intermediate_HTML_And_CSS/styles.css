@@ -1,0 +1,168 @@
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+}
+
+input,
+textarea,
+select,
+button {
+  width: 205px;
+  height: 25px;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+label
+{
+    letter-spacing: 1.5px;
+    font-size: 10px;
+}
+
+input
+{
+    font-size: 14px;
+    appearance: none;
+    border-radius: 4px;
+    border: 1px solid gainsboro;
+    padding-left: 4px;
+}
+
+@font-face {
+    font-family: "paragraph";
+    src: url("./fonts/caviardreams_bolditalic-webfont.woff2");
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+.sidebar
+{
+    flex-grow: 2;
+    background-image: url("./images/martin-adams-_LGlGi3KJIA-unsplash.jpg");
+    background-size: cover;
+    background-repeat:no-repeat;
+}
+
+.main-content
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 3;
+    max-width: 65vw;
+}
+
+.main-header
+{
+    font-family: "paragraph", sans-serif;
+    background-color: rgb(238, 238, 240);
+    display: flex;
+    font-size: 20px;
+    justify-content: flex-start;
+    align-items: center;
+    height: 35vh;
+    width: auto;
+    flex-grow: 1;
+}
+
+.form-content
+{
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    box-shadow: 2px 1px 1px 1px rgba(0,0,0,0.62);
+    height: 30vh;
+    width: auto;
+    padding-bottom: 30px;
+}
+
+
+.main-footer
+{
+    flex-grow: 1;
+    height: 35vh;
+    width: auto;
+    z-index: -1;
+    background-color: #D10000;
+    padding-left: 40px;
+}
+
+
+form
+{
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 12px;
+    font-weight: bold;
+    max-width: 550px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    gap: 10px;
+}
+
+.entry
+{
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+    margin-right: 20px;
+    font-size: 8px;
+}
+
+h2
+{
+    width: 100%;
+    margin-left: 40px;
+    margin-top: 12px;
+}
+
+p
+{
+    margin: 30px;
+    width: 70%;
+}
+
+button
+{
+    width: 190px;
+    height: 40px;
+    font-family: "paragraph", sans-serif;
+    font-size: 14px;
+    margin: 30px;
+    margin-left: 0px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    background-color: #204e0e;
+    border: 2px solid #204e0e;
+    border-radius: 4px;
+    color: whitesmoke;
+    box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.62);
+}
+
+.link
+{
+    padding: 20px;
+    padding-top: 10px;
+    padding-left: 0px;
+}
+
+a
+{
+    font-weight: bold;
+    text-decoration: none;
+    color: #204e0e;
+}
