@@ -141,7 +141,7 @@ p
     margin-left: 40px;
 }
 
-button
+.link input
 {
     width: 190px;
     height: 40px;
@@ -156,13 +156,16 @@ button
     border-radius: 4px;
     color: whitesmoke;
     box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.62);
+    display: flex;
 }
 
 .link
 {
     padding: 20px;
     padding-top: 10px;
-    padding-left: 0px;
+    padding-left: 40px;
+    position: absolute;
+    bottom: 20vh;
 }
 
 a
@@ -191,12 +194,59 @@ a
 }
 
 .credit
-{
+{   
+    display: flex;
     color: white;
     font-size: 12px;
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+}   
+
+#login a
+{
+    padding-left: 40px;
 }
 
 .credit a{
     color: aqua;
     font-size: 12px;
 }
+
+input[type="text"]:focus,input[type="email"]:focus,input[type="tel"]:focus,input[type="password"]:focus
+{
+    outline: none;
+    appearance: none;
+    border: 2px solid green;
+}
+
+
+input[type="password"]
+{
+    outline: none;
+}
+
+input + span {
+    position: relative;
+  }
+  
+  input + span::before {
+    position: absolute;
+    right: -17px;
+    top: -18px;
+  }
+  
+  input:invalid {
+    border: 2px solid red;
+  }
+  
+  input:invalid + span::before {
+    content: "✖";
+    color: red;
+  }
+  
+  input:valid + span::before {
+    content: "✓";
+    color: green;
+  }
+  

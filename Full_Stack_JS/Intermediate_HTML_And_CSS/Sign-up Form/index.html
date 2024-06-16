@@ -14,9 +14,9 @@
         <div class="logo"><img src="./images/logo.png"/></div>
     </div>
     <div class="bottom">
-        <p class="credit">Credit to <em>Martin Adams</em> for <a href="https://unsplash.com/photos/bunch-of-bell-peppers-_LGlGi3KJIA">this photo</a> on <a href="https://unsplash.com">Unsplash</a></p>
+        <span class="credit">Credit to <em>Martin Adams</em> for <a href="https://unsplash.com/photos/bunch-of-bell-peppers-_LGlGi3KJIA">this photo</a> on <a href="https://unsplash.com">Unsplash</a></span>
     </div>
-    
+
     </div>
     <div class ="main-content">
         <div class="main-header">
@@ -25,7 +25,7 @@
             </p>
         </div>
         <div class="form-content">
-            <form>
+            <form id="register" method="get">
                 <h2>Let's grow peppers!</h2>
                 <div class="entry">
                     <label for="firstname">FIRST NAME</label>
@@ -38,8 +38,8 @@
                 </div>
 
                 <div class="entry">
-                    <label for="email">EMAIL</label>
-                    <input type="email" id="email"/>
+                    <label for="email" required>EMAIL</label>
+                    <input type="email" id="email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required/><span></span>
                 </div>
 
                 <div class="entry">
@@ -49,20 +49,23 @@
 
                 <div class="entry">
                     <label for="password">PASSWORD</label>
-                    <input type="password" id="password"/>
+                    <input type="password" id="password" required/><span></span>
                 </div>
                 <div class="entry">
                     <label for="confirm-password">CONFIRM PASSWORD</label>
-                    <input type="password" id="confirm-password"/>
+                    <input type="password" id="confirm-password" required/><span></span>
+                </div>
+                <div class="link">
+                    <input type="submit" form="register" value="Create Account"/>
+                    Already have an account? <a href="#">Log in</a>
+                
                 </div>
             </form>
+            
         </div>
         <div class="main-footer">
-            <button>Create Account</button>
-            <div class="link">Already have an account? <a href="#">Log in</a></div>
-
+           
         </div>
     </div>
-
 </body>
 </html>
