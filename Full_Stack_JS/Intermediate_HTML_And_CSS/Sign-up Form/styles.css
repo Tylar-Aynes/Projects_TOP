@@ -201,6 +201,7 @@ a
     display: flex;
     justify-content: center;
     gap: 4px;
+    margin-bottom: 4px;
 }   
 
 #login a
@@ -209,7 +210,7 @@ a
 }
 
 .credit a{
-    color: aqua;
+    color: rgb(0, 8, 255);
     font-size: 12px;
 }
 
@@ -233,20 +234,21 @@ input + span {
   input + span::before {
     position: absolute;
     right: -17px;
-    top: -18px;
+    top: -19px;
   }
   
-  input:invalid {
-    border: 2px solid red;
+  input:required + span::before{
+    content: "*";
+    color: red;
+    font-size: 16px;
   }
   
   input:invalid + span::before {
-    content: "✖";
-    color: red;
   }
   
   input:valid + span::before {
     content: "✓";
     color: green;
+    top: -22px;
   }
   
