@@ -52,6 +52,10 @@ body
 
 .sidebar
 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
     flex-grow: 2;
     background-image: url("./images/martin-adams-_LGlGi3KJIA-unsplash.jpg");
     background-size: cover;
@@ -64,7 +68,7 @@ body
     flex-direction: column;
     justify-content: center;
     flex-grow: 3;
-    max-width: 65vw;
+    max-width: 63vw;
 }
 
 .main-header
@@ -127,13 +131,14 @@ h2
 {
     width: 100%;
     margin-left: 40px;
-    margin-top: 12px;
+    margin-top: 20px;
 }
 
 p
 {
     margin: 30px;
     width: 70%;
+    margin-left: 40px;
 }
 
 button
@@ -165,4 +170,33 @@ a
     font-weight: bold;
     text-decoration: none;
     color: #204e0e;
+}
+
+.main, .bottom{
+    display: flex;
+    align-items: flex-end;
+    height: 45vh;
+    width: 100%;
+    justify-content: center;
+}
+
+.logo
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: rgba(238, 238, 240, 0.50);
+    height: 100px;
+}
+
+.credit
+{
+    color: white;
+    font-size: 12px;
+}
+
+.credit a{
+    color: aqua;
+    font-size: 12px;
 }
