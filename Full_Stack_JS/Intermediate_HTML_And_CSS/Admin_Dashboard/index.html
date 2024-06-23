@@ -9,15 +9,18 @@
 <body>
     <div class="header">
         <div class="header-upper">
-            <input type="search"/>
+            <div class="search-bar">
+                <img class="icons" id="magnify" src="./icons/magnify.svg"/><input type="search"/>
+            </div>
             <div class="upper-links">
-                <a>Bell</a>
-                <a>Profile</a>
-                <a>Account</a>
+                <a><img class="icons" src="./icons/bell-ring-outline.svg"/></a>
+                <a><img class="dashboard-icon" src="./icons/face-man-profile.svg"/></a>
+                <a style="font-weight: bold; font-size: 20px;">Account Name</a>
             </div>
         </div>
         <div class="header-lower">
-            <div class="main-icon">Insert Icon Here</div>
+            <div class="header-icon"><img class="main-icon" style="height: 60px; width: 60px;" src="./icons/face-man-profile.svg"/><div>
+                <span>Hi there,</span><br><span id="name">Account Name (@AccountHandle)</span></div></div>
             <div class="header-buttons">
                 <button>New</button>
                 <button>Upload</button>
