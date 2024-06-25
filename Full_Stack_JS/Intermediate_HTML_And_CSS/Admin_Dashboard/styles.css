@@ -103,6 +103,9 @@ input[type="search"]
     background-color: #d1d5db;
 }
 
+.header-span, #name
+{color : black;}
+
 .header-lower > .header-icon
 {
     display: grid;
@@ -198,15 +201,66 @@ button
 
 .announcements, .trends
 {
+    display: grid;
     width: 230px;
     height: 250px;
     border-radius: 6px;
     background-color: #1f2937;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.announce-text, 
+.announce-details
+{
+    text-align: center;
+    margin: 0;
+    font-size: 12px;
+    color: #f5f5f5e0;
+}
+
+h4
+{
+    text-align: center;
+}
+
+h4, span
+{
+    margin: 0;
+    color: #f9fafb;
 }
 
 .trends
 {
     grid-row-end: 5;
+    display: grid;
+    justify-content: center;
+    align-content: space-evenly;
+}
+
+.trends-details
+{
+    display: grid;
+    grid-template-columns: 60px 120px;
+    justify-content: center;
+}
+
+.trend-text
+{display: grid;
+    grid-column: 2/3;
+    font-size: 12px;
+    text-align: center;
+    align-content: center;
+
+}
+
+.trend-handle
+{
+    font-size: 14px;
+}
+.trend-icon
+{
+    grid-column: 1/2;
 }
 
 .trendtitle
